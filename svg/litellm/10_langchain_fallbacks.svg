@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320">
+  <defs>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#7b9fd4"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#22c55e"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#ef4444"/></marker>
+  </defs>
+  <rect width="920" height="320" fill="#0f1117"/>
+  <text x="460" y="28" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600" letter-spacing="1.5" font-family="system-ui,sans-serif">LANGCHAIN FALLBACKS — .with_fallbacks() CHAIN</text>
+
+  <!-- Chain input -->
+  <rect x="20" y="128" width="110" height="50" rx="8" fill="#1e2235" stroke="#3d5a8a" stroke-width="1.5"/>
+  <text x="75" y="159" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="500" font-family="system-ui,sans-serif">Chain input</text>
+
+  <!-- Primary (fails) -->
+  <rect x="198" y="115" width="175" height="66" rx="8" fill="#2d0f0f" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="285" y="139" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Primary LLM</text>
+  <text x="285" y="157" text-anchor="middle" fill="#ef4444" font-size="10" font-family="system-ui,sans-serif">ChatLiteLLM(model="gpt-x")</text>
+  <text x="285" y="171" text-anchor="middle" fill="#ef4444" font-size="10" font-family="system-ui,sans-serif">❌ Bad model → fails</text>
+
+  <!-- Fallback 1 (succeeds) -->
+  <rect x="450" y="115" width="200" height="66" rx="8" fill="#0a2518" stroke="#22c55e" stroke-width="2"/>
+  <text x="550" y="139" text-anchor="middle" fill="#86efac" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Fallback 1 ✓</text>
+  <text x="550" y="157" text-anchor="middle" fill="#22c55e" font-size="10" font-family="system-ui,sans-serif">ChatLiteLLM(model=</text>
+  <text x="550" y="171" text-anchor="middle" fill="#22c55e" font-size="10" font-family="system-ui,sans-serif">"groq/openai/gpt-oss-120b")</text>
+
+  <!-- Fallback 2 (optional) -->
+  <rect x="450" y="210" width="200" height="52" rx="8" fill="#111827" stroke="#4b5563" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="550" y="230" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="500" font-family="system-ui,sans-serif">Fallback 2</text>
+  <text x="550" y="248" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">"groq/llama-3.3-70b-versatile"</text>
+
+  <!-- Output -->
+  <rect x="720" y="128" width="170" height="50" rx="8" fill="#0a2518" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="805" y="149" text-anchor="middle" fill="#86efac" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Chain Output</text>
+  <text x="805" y="165" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">app never saw the error</text>
+
+  <!-- Chain input → Primary -->
+  <line x1="132" y1="153" x2="196" y2="148" stroke="#7b9fd4" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- Primary fails → error -->
+  <line x1="375" y1="148" x2="448" y2="148" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#ar)"/>
+  <text x="412" y="139" text-anchor="middle" fill="#ef4444" font-size="11" font-family="system-ui,sans-serif">fails</text>
+
+  <!-- Primary failure → try fallback 1 -->
+  <text x="412" y="158" text-anchor="middle" fill="#eab308" font-size="10" font-family="system-ui,sans-serif">auto route</text>
+
+  <!-- Fallback 1 → Output -->
+  <line x1="652" y1="148" x2="718" y2="148" stroke="#22c55e" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- .with_fallbacks() label -->
+  <rect x="190" y="208" width="255" height="28" rx="4" fill="#111827" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="317" y="227" text-anchor="middle" fill="#fbbf24" font-size="11" font-family="system-ui,sans-serif">primary.with_fallbacks([fb1, fb2])</text>
+
+  <!-- Caption -->
+  <text x="460" y="286" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">LangChain's native .with_fallbacks() + LiteLLM models = resilient multi-provider chain</text>
+  <text x="460" y="302" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">Each fallback can be a completely different provider · Works with any LCEL chain</text>
+</svg>

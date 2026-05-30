@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440">
+  <defs>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#7b9fd4"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#22c55e"/></marker>
+    <marker id="ay" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#eab308"/></marker>
+  </defs>
+  <rect width="960" height="440" fill="#0f1117"/>
+  <text x="480" y="28" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600" letter-spacing="1.5" font-family="system-ui,sans-serif">SMART CHATBOT — END-TO-END TASK-AWARE ROUTER</text>
+
+  <!-- User Query -->
+  <rect x="20" y="195" width="120" height="50" rx="8" fill="#1e2235" stroke="#3d5a8a" stroke-width="1.5"/>
+  <text x="80" y="216" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="500" font-family="system-ui,sans-serif">User Query</text>
+  <text x="80" y="231" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui,sans-serif">"Write Python..."</text>
+
+  <!-- classify_task() -->
+  <rect x="198" y="187" width="145" height="66" rx="8" fill="#1c1800" stroke="#eab308" stroke-width="2"/>
+  <text x="270" y="210" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700" font-family="system-ui,sans-serif">classify_task()</text>
+  <text x="270" y="227" text-anchor="middle" fill="#d97706" font-size="10" font-family="system-ui,sans-serif">cheap model call</text>
+  <text x="270" y="241" text-anchor="middle" fill="#d97706" font-size="10" font-family="system-ui,sans-serif">→ "code" | "summary"...</text>
+
+  <!-- routing dict -->
+  <rect x="404" y="180" width="160" height="80" rx="8" fill="#111827" stroke="#4b5563" stroke-width="1.5"/>
+  <text x="484" y="200" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600" font-family="system-ui,sans-serif">routing dict</text>
+  <text x="484" y="217" text-anchor="middle" fill="#7b9fd4" font-size="9" font-family="system-ui,sans-serif">"code" → [gpt-oss, gemini, llama]</text>
+  <text x="484" y="232" text-anchor="middle" fill="#60a5fa" font-size="9" font-family="system-ui,sans-serif">"summary" → [gemini, llama]</text>
+  <text x="484" y="247" text-anchor="middle" fill="#4ade80" font-size="9" font-family="system-ui,sans-serif">"general" → [llama, gpt-oss]</text>
+
+  <!-- call_with_fallbacks() -->
+  <rect x="628" y="187" width="165" height="66" rx="8" fill="#1c1800" stroke="#eab308" stroke-width="2"/>
+  <text x="710" y="210" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700" font-family="system-ui,sans-serif">call_with_fallbacks</text>
+  <text x="710" y="227" text-anchor="middle" fill="#d97706" font-size="10" font-family="system-ui,sans-serif">tries model_chain[0]</text>
+  <text x="710" y="241" text-anchor="middle" fill="#d97706" font-size="10" font-family="system-ui,sans-serif">on fail → try next</text>
+
+  <!-- Response + metrics -->
+  <rect x="820" y="182" width="120" height="76" rx="8" fill="#0a2518" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="880" y="204" text-anchor="middle" fill="#86efac" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Response</text>
+  <text x="880" y="220" text-anchor="middle" fill="#4ade80" font-size="9" font-family="system-ui,sans-serif">+ model used</text>
+  <text x="880" y="234" text-anchor="middle" fill="#4ade80" font-size="9" font-family="system-ui,sans-serif">+ latency</text>
+  <text x="880" y="248" text-anchor="middle" fill="#4ade80" font-size="9" font-family="system-ui,sans-serif">+ cost_usd</text>
+
+  <!-- Arrows (main flow) -->
+  <line x1="142" y1="220" x2="196" y2="220" stroke="#7b9fd4" stroke-width="1.5" marker-end="url(#ab)"/>
+  <line x1="345" y1="220" x2="402" y2="220" stroke="#eab308" stroke-width="1.5" marker-end="url(#ay)"/>
+  <text x="373" y="212" text-anchor="middle" fill="#eab308" font-size="10" font-family="system-ui,sans-serif">"code"</text>
+  <line x1="566" y1="220" x2="626" y2="220" stroke="#7b9fd4" stroke-width="1.5" marker-end="url(#ab)"/>
+  <line x1="795" y1="220" x2="818" y2="220" stroke="#22c55e" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- Model pool examples below -->
+  <text x="480" y="298" text-anchor="middle" fill="#64748b" font-size="10" font-weight="600" font-family="system-ui,sans-serif">model_chain for "code" task:</text>
+
+  <rect x="55" y="314" width="230" height="36" rx="6" fill="#1c1800" stroke="#eab308" stroke-width="1.5"/>
+  <text x="170" y="327" text-anchor="middle" fill="#fcd34d" font-size="11" font-weight="600" font-family="system-ui,sans-serif">1st: gemini/gemini-2.5-flash-lite</text>
+  <text x="170" y="342" text-anchor="middle" fill="#d97706" font-size="10" font-family="system-ui,sans-serif">try first</text>
+
+  <rect x="310" y="314" width="230" height="36" rx="6" fill="#111827" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="425" y="327" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500" font-family="system-ui,sans-serif">2nd: groq/openai/gpt-oss-120b</text>
+  <text x="425" y="342" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">if 1st fails</text>
+
+  <rect x="565" y="314" width="230" height="36" rx="6" fill="#111827" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="680" y="327" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500" font-family="system-ui,sans-serif">3rd: groq/llama-3.3-70b-versatile</text>
+  <text x="680" y="342" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">last resort</text>
+
+  <line x1="285" y1="332" x2="308" y2="332" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#ab)"/>
+  <line x1="540" y1="332" x2="563" y2="332" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#ab)"/>
+
+  <!-- Caption -->
+  <text x="480" y="396" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">Classify once cheaply · Route to the right specialist · Fall back automatically on failure</text>
+  <text x="480" y="412" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">Every call returns: model used · latency · cost · response — full observability built in</text>
+</svg>

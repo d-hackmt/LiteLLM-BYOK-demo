@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540">
+  <defs>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#7b9fd4"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#22c55e"/></marker>
+    <marker id="ay" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#eab308"/></marker>
+  </defs>
+  <rect width="920" height="540" fill="#0f1117"/>
+  <text x="460" y="28" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600" letter-spacing="1.5" font-family="system-ui,sans-serif">ROUTING STRATEGIES — FOUR WAYS TO DISTRIBUTE TRAFFIC</text>
+
+  <!-- Dividers -->
+  <line x1="460" y1="50" x2="460" y2="510" stroke="#1e2235" stroke-width="1"/>
+  <line x1="30" y1="290" x2="890" y2="290" stroke="#1e2235" stroke-width="1"/>
+
+  <!-- ── TOP LEFT: simple-shuffle ──────────────────────────────────────── -->
+  <text x="230" y="68" text-anchor="middle" fill="#eab308" font-size="12" font-weight="700" font-family="system-ui,sans-serif">simple-shuffle</text>
+  <text x="230" y="84" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">Random rotation across all deployments</text>
+
+  <rect x="40" y="100" width="80" height="34" rx="5" fill="#1e2235" stroke="#3d5a8a" stroke-width="1"/>
+  <text x="80" y="122" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="system-ui,sans-serif">Router</text>
+  <rect x="290" y="92" width="90" height="26" rx="5" fill="#1c1800" stroke="#eab308" stroke-width="1"/>
+  <text x="335" y="109" text-anchor="middle" fill="#fbbf24" font-size="10" font-family="system-ui,sans-serif">Model A</text>
+  <rect x="290" y="128" width="90" height="26" rx="5" fill="#0a2010" stroke="#22c55e" stroke-width="1"/>
+  <text x="335" y="145" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">Model B</text>
+  <rect x="290" y="164" width="90" height="26" rx="5" fill="#0d1f3c" stroke="#3b82f6" stroke-width="1"/>
+  <text x="335" y="181" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="system-ui,sans-serif">Model C</text>
+
+  <line x1="122" y1="107" x2="288" y2="102" stroke="#eab308" stroke-width="1.5" marker-end="url(#ay)"/>
+  <line x1="122" y1="117" x2="288" y2="141" stroke="#eab308" stroke-width="1.5" marker-end="url(#ay)"/>
+  <line x1="122" y1="127" x2="288" y2="177" stroke="#eab308" stroke-width="1.5" marker-end="url(#ay)"/>
+  <text x="200" y="96" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui,sans-serif">req #1 #4 / #2 #6 / #3 #5</text>
+
+  <!-- ── TOP RIGHT: least-busy ──────────────────────────────────────────── -->
+  <text x="690" y="68" text-anchor="middle" fill="#eab308" font-size="12" font-weight="700" font-family="system-ui,sans-serif">least-busy</text>
+  <text x="690" y="84" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">Route to deployment with fewest in-flight requests</text>
+
+  <rect x="500" y="100" width="80" height="34" rx="5" fill="#1e2235" stroke="#3d5a8a" stroke-width="1"/>
+  <text x="540" y="122" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="system-ui,sans-serif">Router</text>
+  <rect x="740" y="92" width="130" height="26" rx="5" fill="#1c1800" stroke="#eab308" stroke-width="1"/>
+  <text x="805" y="109" text-anchor="middle" fill="#fbbf24" font-size="10" font-family="system-ui,sans-serif">Model A · 3 in-flight</text>
+  <rect x="740" y="128" width="130" height="26" rx="5" fill="#0a2010" stroke="#22c55e" stroke-width="2"/>
+  <text x="805" y="145" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">Model B · 0 in-flight ←</text>
+  <rect x="740" y="164" width="130" height="26" rx="5" fill="#0d1f3c" stroke="#3b82f6" stroke-width="1"/>
+  <text x="805" y="181" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="system-ui,sans-serif">Model C · 2 in-flight</text>
+
+  <line x1="582" y1="113" x2="738" y2="105" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="582" y1="117" x2="738" y2="141" stroke="#22c55e" stroke-width="2" marker-end="url(#ag)"/>
+  <line x1="582" y1="121" x2="738" y2="177" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="660" y="132" text-anchor="middle" fill="#22c55e" font-size="9" font-family="system-ui,sans-serif">picks least loaded</text>
+
+  <!-- ── BOTTOM LEFT: latency-based ──────────────────────────────────────── -->
+  <text x="230" y="312" text-anchor="middle" fill="#eab308" font-size="12" font-weight="700" font-family="system-ui,sans-serif">latency-based-routing</text>
+  <text x="230" y="328" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">Always pick the historically fastest deployment</text>
+
+  <rect x="40" y="344" width="80" height="34" rx="5" fill="#1e2235" stroke="#3d5a8a" stroke-width="1"/>
+  <text x="80" y="366" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="system-ui,sans-serif">Router</text>
+
+  <rect x="250" y="336" width="165" height="26" rx="5" fill="#0a2010" stroke="#22c55e" stroke-width="2"/>
+  <text x="332" y="353" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">Groq Llama · avg 420ms ← FAST</text>
+  <rect x="250" y="372" width="165" height="26" rx="5" fill="#0d1f3c" stroke="#4b5563" stroke-width="1"/>
+  <text x="332" y="389" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">Gemini Flash · avg 1250ms</text>
+
+  <line x1="122" y1="353" x2="248" y2="349" stroke="#22c55e" stroke-width="2" marker-end="url(#ag)"/>
+  <line x1="122" y1="365" x2="248" y2="385" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="185" y="343" text-anchor="middle" fill="#22c55e" font-size="9" font-family="system-ui,sans-serif">always fastest wins</text>
+
+  <!-- Latency measurement note -->
+  <rect x="250" y="415" width="165" height="28" rx="4" fill="#111827" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="332" y="434" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="system-ui,sans-serif">router samples &amp; updates avg latency</text>
+
+  <!-- ── BOTTOM RIGHT: cost-based ──────────────────────────────────────── -->
+  <text x="690" y="312" text-anchor="middle" fill="#eab308" font-size="12" font-weight="700" font-family="system-ui,sans-serif">cost-based-routing</text>
+  <text x="690" y="328" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">Route to the cheapest model per token right now</text>
+
+  <rect x="500" y="344" width="80" height="34" rx="5" fill="#1e2235" stroke="#3d5a8a" stroke-width="1"/>
+  <text x="540" y="366" text-anchor="middle" fill="#e2e8f0" font-size="10" font-family="system-ui,sans-serif">Router</text>
+
+  <rect x="700" y="336" width="185" height="26" rx="5" fill="#0a2010" stroke="#22c55e" stroke-width="2"/>
+  <text x="792" y="353" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">Groq Llama · $0.05/M ← CHEAP</text>
+  <rect x="700" y="372" width="185" height="26" rx="5" fill="#0d1f3c" stroke="#4b5563" stroke-width="1"/>
+  <text x="792" y="389" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">GPT-OSS · $0.15/M</text>
+  <rect x="700" y="408" width="185" height="26" rx="5" fill="#111827" stroke="#4b5563" stroke-width="1"/>
+  <text x="792" y="425" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">Gemini Flash · $0.075/M</text>
+
+  <line x1="582" y1="353" x2="698" y2="349" stroke="#22c55e" stroke-width="2" marker-end="url(#ag)"/>
+  <line x1="582" y1="363" x2="698" y2="385" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="582" y1="373" x2="698" y2="421" stroke="#4b5563" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="640" y="343" text-anchor="middle" fill="#22c55e" font-size="9" font-family="system-ui,sans-serif">always cheapest wins</text>
+
+  <!-- Caption -->
+  <text x="460" y="500" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">Set routing_strategy= once in Router() · All requests through that router use the strategy automatically</text>
+  <text x="460" y="516" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">Mix strategies: one router for latency-sensitive paths, another for batch/cost-sensitive jobs</text>
+</svg>

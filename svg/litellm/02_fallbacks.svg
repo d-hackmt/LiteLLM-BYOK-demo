@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380">
+  <defs>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#7b9fd4"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#22c55e"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#ef4444"/></marker>
+    <marker id="ay" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#eab308"/></marker>
+  </defs>
+  <rect width="860" height="380" fill="#0f1117"/>
+  <text x="430" y="26" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600" letter-spacing="1.5" font-family="system-ui,sans-serif">FALLBACKS — AUTOMATIC CHAIN WHEN PRIMARY FAILS</text>
+
+  <!-- ── LEFT: Your App ──────────────────────────────── -->
+  <rect x="18" y="158" width="130" height="48" rx="8" fill="#1e2235" stroke="#3d5a8a" stroke-width="1.5"/>
+  <text x="83" y="188" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="500" font-family="system-ui,sans-serif">Your App</text>
+
+  <!-- ── CENTER: LiteLLM ────────────────────────────── -->
+  <rect x="208" y="148" width="168" height="68" rx="8" fill="#1c1800" stroke="#eab308" stroke-width="2"/>
+  <text x="292" y="172" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="system-ui,sans-serif">LiteLLM</text>
+  <text x="292" y="190" text-anchor="middle" fill="#d97706" font-size="11" font-family="system-ui,sans-serif">completion(</text>
+  <text x="292" y="205" text-anchor="middle" fill="#d97706" font-size="11" font-family="system-ui,sans-serif">  fallbacks=[...])</text>
+
+  <!-- ── RIGHT: Primary (fails) ─────────────────────── -->
+  <rect x="480" y="55" width="340" height="54" rx="8" fill="#2d0f0f" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="650" y="76" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700" font-family="system-ui,sans-serif">Primary Model  ✕</text>
+  <text x="650" y="94" text-anchor="middle" fill="#ef4444" font-size="10" font-family="system-ui,sans-serif">gemini-2.5-flash-lite · rate-limited or down</text>
+
+  <!-- ── RIGHT: Fallback 1 (succeeds) ──────────────── -->
+  <rect x="480" y="160" width="340" height="54" rx="8" fill="#0a2518" stroke="#22c55e" stroke-width="2"/>
+  <text x="650" y="181" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700" font-family="system-ui,sans-serif">Fallback 1  ✓</text>
+  <text x="650" y="199" text-anchor="middle" fill="#22c55e" font-size="10" font-family="system-ui,sans-serif">groq/openai/gpt-oss-120b · responds successfully</text>
+
+  <!-- ── RIGHT: Fallback 2 (optional) ──────────────── -->
+  <rect x="480" y="268" width="340" height="48" rx="8" fill="#111827" stroke="#4b5563" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="650" y="289" text-anchor="middle" fill="#64748b" font-size="12" font-weight="500" font-family="system-ui,sans-serif">Fallback 2  (if fb1 also fails)</text>
+  <text x="650" y="306" text-anchor="middle" fill="#4b5563" font-size="10" font-family="system-ui,sans-serif">groq/llama-3.3-70b-versatile</text>
+
+  <!-- ── ARROWS ─────────────────────────────────────── -->
+
+  <!-- 1. App → LiteLLM -->
+  <line x1="150" y1="178" x2="206" y2="178" stroke="#7b9fd4" stroke-width="1.5" marker-end="url(#ab)"/>
+  <text x="178" y="171" text-anchor="middle" fill="#7b9fd4" font-size="10" font-family="system-ui,sans-serif">Request</text>
+
+  <!-- 2. LiteLLM → Primary (diagonal up-right) -->
+  <line x1="378" y1="165" x2="478" y2="93" stroke="#7b9fd4" stroke-width="1.5" marker-end="url(#ab)"/>
+  <text x="412" y="118" text-anchor="middle" fill="#7b9fd4" font-size="10" font-family="system-ui,sans-serif">1. Try primary</text>
+
+  <!-- 3. Primary fail → LiteLLM (diagonal down-left, red dashed) -->
+  <line x1="478" y1="107" x2="378" y2="195" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ar)"/>
+  <text x="455" y="158" text-anchor="middle" fill="#ef4444" font-size="10" font-family="system-ui,sans-serif">Fails ✕</text>
+
+  <!-- 4. LiteLLM → Fallback 1 (horizontal, amber) -->
+  <line x1="378" y1="190" x2="478" y2="190" stroke="#eab308" stroke-width="1.5" marker-end="url(#ay)"/>
+  <text x="428" y="183" text-anchor="middle" fill="#eab308" font-size="10" font-family="system-ui,sans-serif">2. Auto fallback</text>
+
+  <!-- 5. Fallback 1 success → LiteLLM (horizontal, green) -->
+  <line x1="478" y1="206" x2="378" y2="206" stroke="#22c55e" stroke-width="1.5" marker-end="url(#ag)"/>
+  <text x="428" y="220" text-anchor="middle" fill="#22c55e" font-size="10" font-family="system-ui,sans-serif">Succeeds ✓</text>
+
+  <!-- 6. LiteLLM → App (response) -->
+  <line x1="206" y1="198" x2="150" y2="198" stroke="#22c55e" stroke-width="1.5" marker-end="url(#ag)"/>
+  <text x="178" y="214" text-anchor="middle" fill="#22c55e" font-size="10" font-family="system-ui,sans-serif">Response</text>
+
+  <!-- Step labels on left -->
+  <text x="83" y="238" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">App never</text>
+  <text x="83" y="250" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">saw the failure</text>
+
+  <!-- Caption -->
+  <text x="430" y="346" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">App code doesn't change · LiteLLM walks the fallbacks list until one succeeds</text>
+  <text x="430" y="362" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">fallbacks=["model-1", "model-2", ...] — add as many backup providers as you need</text>
+</svg>

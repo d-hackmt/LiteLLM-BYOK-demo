@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 380">
+  <defs>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#7b9fd4"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#22c55e"/></marker>
+    <marker id="ay" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#eab308"/></marker>
+  </defs>
+  <rect width="940" height="380" fill="#0f1117"/>
+  <text x="470" y="28" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600" letter-spacing="1.5" font-family="system-ui,sans-serif">SMART ROUTING — RIGHT MODEL FOR THE RIGHT TASK</text>
+
+  <!-- User Query -->
+  <rect x="20" y="163" width="130" height="50" rx="8" fill="#1e2235" stroke="#3d5a8a" stroke-width="1.5"/>
+  <text x="85" y="184" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="500" font-family="system-ui,sans-serif">User Query</text>
+  <text x="85" y="200" text-anchor="middle" fill="#64748b" font-size="10" font-family="system-ui,sans-serif">"Write Python code"</text>
+
+  <!-- classify_task() -->
+  <rect x="210" y="155" width="165" height="66" rx="8" fill="#1c1800" stroke="#eab308" stroke-width="2"/>
+  <text x="292" y="180" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" font-family="system-ui,sans-serif">classify_task()</text>
+  <text x="292" y="197" text-anchor="middle" fill="#d97706" font-size="11" font-family="system-ui,sans-serif">→ "code"</text>
+  <text x="292" y="212" text-anchor="middle" fill="#d97706" font-size="11" font-family="system-ui,sans-serif">→ "summary"</text>
+
+  <!-- Router dict -->
+  <rect x="440" y="148" width="170" height="80" rx="8" fill="#111827" stroke="#4b5563" stroke-width="1.5"/>
+  <text x="525" y="168" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600" font-family="system-ui,sans-serif">routing = &#123;</text>
+  <text x="525" y="184" text-anchor="middle" fill="#7b9fd4" font-size="10" font-family="system-ui,sans-serif">"code"    → smart-coding</text>
+  <text x="525" y="199" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="system-ui,sans-serif">"summary" → balanced</text>
+  <text x="525" y="214" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">"general" → fast-cheap</text>
+
+  <!-- smart-coding: GPT-OSS -->
+  <rect x="690" y="58" width="225" height="46" rx="7" fill="#1c1800" stroke="#eab308" stroke-width="1.5"/>
+  <text x="802" y="77" text-anchor="middle" fill="#fcd34d" font-size="12" font-weight="600" font-family="system-ui,sans-serif">smart-coding</text>
+  <text x="802" y="94" text-anchor="middle" fill="#d97706" font-size="10" font-family="system-ui,sans-serif">groq/openai/gpt-oss-120b</text>
+
+  <!-- balanced: Gemini -->
+  <rect x="690" y="165" width="225" height="46" rx="7" fill="#0d1f3c" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="802" y="184" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="600" font-family="system-ui,sans-serif">balanced</text>
+  <text x="802" y="200" text-anchor="middle" fill="#60a5fa" font-size="10" font-family="system-ui,sans-serif">gemini/gemini-2.5-flash-lite</text>
+
+  <!-- fast-cheap: Groq Llama -->
+  <rect x="690" y="272" width="225" height="46" rx="7" fill="#0a2010" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="802" y="291" text-anchor="middle" fill="#86efac" font-size="12" font-weight="600" font-family="system-ui,sans-serif">fast-cheap</text>
+  <text x="802" y="307" text-anchor="middle" fill="#4ade80" font-size="10" font-family="system-ui,sans-serif">groq/llama-3.3-70b-versatile</text>
+
+  <!-- Query → classify -->
+  <line x1="152" y1="188" x2="208" y2="188" stroke="#7b9fd4" stroke-width="1.5" marker-end="url(#ab)"/>
+
+  <!-- classify → router -->
+  <line x1="377" y1="188" x2="438" y2="188" stroke="#eab308" stroke-width="1.5" marker-end="url(#ay)"/>
+  <text x="407" y="181" text-anchor="middle" fill="#eab308" font-size="10" font-family="system-ui,sans-serif">"code"</text>
+
+  <!-- router → models (fan out) -->
+  <line x1="612" y1="178" x2="688" y2="81" stroke="#eab308" stroke-width="1.5" marker-end="url(#ay)"/>
+  <line x1="612" y1="188" x2="688" y2="188" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#ab)"/>
+  <line x1="612" y1="198" x2="688" y2="295" stroke="#22c55e" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- "code task routed to" label -->
+  <text x="650" y="62" text-anchor="middle" fill="#eab308" font-size="10" font-family="system-ui,sans-serif">code task</text>
+  <text x="650" y="180" text-anchor="middle" fill="#3b82f6" font-size="10" font-family="system-ui,sans-serif">summary</text>
+  <text x="650" y="288" text-anchor="middle" fill="#22c55e" font-size="10" font-family="system-ui,sans-serif">general</text>
+
+  <!-- Caption -->
+  <text x="470" y="348" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">Classify once with a cheap model · Route to the specialist · Swap providers with a string</text>
+  <text x="470" y="364" text-anchor="middle" fill="#475569" font-size="11" font-family="system-ui,sans-serif">Tomorrow: change the routing dict — zero app code changes</text>
+</svg>
