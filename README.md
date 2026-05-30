@@ -1,5 +1,7 @@
 # LiteLLM — Open-Source LLM Gateway
 
+https://verylitellm.streamlit.app/
+
 > **One-line summary:** LiteLLM is a Python library that gives you one unified function — `completion()` — to call 100+ LLM providers with identical code, plus a built-in Router for smart traffic management.
 
 ---
